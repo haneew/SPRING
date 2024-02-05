@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.itbank.repository.surveysDAO">
+
+	<select id="selectList" resultType="surveys">
+	<!-- resultType : 반환형 -->
+		select * from surveys order by idx
+	</select>
+	
+	<select id="selectOne" parameterType="int" resultType="surveys">
+		select * from surveys where idx = #{idx}
+	</select>
+	
+	<insert id="insert" parameterType="surveys">
+		insert into survey (title, writer, content1, content2, image1, image2, choice)
+		 	values
+		 		(#{title}, #{writer}, #{content1}, #{content2},#{image1}, #{image2}, #{choice})
+	</insert>
+	
+	
+	
+</mapper>
