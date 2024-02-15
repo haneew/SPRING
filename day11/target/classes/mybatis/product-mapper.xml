@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.itbank.repository.ProductDAO">
+	<select id="selectList" resultType="product">
+		select * from product order by idx
+	</select>
+	
+	
+	<insert id="insert" parameterType="product">
+		insert into product (pname, pimg, price, pvol)
+			values (#{pname},#{pimg},#{price},#{pvol})
+	</insert>
+	                                                                                                                 
+	<select id="selectOne" parameterType="int" resultType="product">
+		select * from product where idx = #{idx}
+	</select>
+	
+	<update id="update" parameterType="product">
+		update product
+		 	set
+		 		pvol = #{pvol}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from product where idx = #{idx}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
