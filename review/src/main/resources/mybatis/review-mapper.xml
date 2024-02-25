@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.itbank.repository.ReviewDAO">
+	<select id="selectList" parameterType="review" resultType="review">
+		select * from review order by idx
+	</select>
+	<insert id="insert">
+		insert into review (title, writer, image, content)
+			values (#{title}, #{writer}, #{image}, #{content})
+	</insert>
+	
+	<select id="selectOne">
+		select * from review where idx = #{idx}
+	</select>
+	
+	<delete id="delete">
+		delete from review where idx = #{idx}
+	</delete>
+</mapper>
